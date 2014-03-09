@@ -13,7 +13,7 @@ namespace Hadows.MyWindow
 	public class WindowPage : Page
 	{
 		//-------------------------- ▶ Constants
-		private const double _FULL_SIZE_VIEW_MIN_WIDTH = 500;
+		private const double _FULL_SIZE_VIEW_MIN_WIDTH = 501;
 
 
 		//-------------------------- ▶ Members

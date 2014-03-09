@@ -1,14 +1,21 @@
-﻿<UserControl
-    x:Class="Hadows.MyWindow.Window002"
+﻿<MyWindow:WindowPage
+    x:Name="pageRoot"
+    x:Class="Hadows.MyWindow.WindowsPage001"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Hadows.Window"
+    xmlns:local="using:Hadows.MyWindow"
+    xmlns:common="using:Hadows.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:Control="using:Hadows.Control"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    xmlns:MyWindow="using:Hadows.MyWindow">
+
+    <MyWindow:WindowPage.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+    </MyWindow:WindowPage.Resources>
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
@@ -69,4 +76,4 @@
             <StackPanel x:Name="SnappedSizePanel"/>
         </ScrollViewer>
     </Grid>
-</UserControl>
+</MyWindow:WindowPage>

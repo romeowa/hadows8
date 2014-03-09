@@ -92,6 +92,9 @@ namespace Hadows.Component
 
 		async void _PlayMusicAsync()
 		{
+			if (CurrentSong == null)
+				return;
+
 			var stream = await CurrentSong.StorageFile.OpenAsync(FileAccessMode.Read);
 			musicMediaElement.SetSource(stream, CurrentSong.StorageFile.ContentType);
 			musicMediaElement.Play();
@@ -241,6 +244,12 @@ namespace Hadows.Component
 				return;
 
 			_updateProgressBarTimer.Stop();
+		}
+
+
+		public override string ToString()
+		{
+			return "audio player!!";
 		}
 	}
 }

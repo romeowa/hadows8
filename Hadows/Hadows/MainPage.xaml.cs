@@ -19,23 +19,25 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Hadows
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        public MainPage()
-        {
-            this.InitializeComponent();
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class MainPage : Page
+	{
+		public MainPage()
+		{
+			this.InitializeComponent();
 			LinkEvents();
 		}
 
 		private void LinkEvents()
 		{
-			Windows002Button.Click += Windows002Button_Click;
-			VideoPlayerButton.Click += VideoPlayerButton_Click;
-			AudioPlayerButton.Click += AudioPlayerButton_Click;
-			WebButton.Click += WebButton_Click;
+			WidowsButton.Click += WidowsButton_Click;
+		}
+
+		void WidowsButton_Click(object sender, RoutedEventArgs e)
+		{
+			this.Content = new WindowsPage001();
 		}
 
 		void WebButton_Click(object sender, RoutedEventArgs e)
@@ -50,12 +52,12 @@ namespace Hadows
 
 		void Windows002Button_Click(object sender, RoutedEventArgs e)
 		{
-			this.Content = new Window002();
+			this.Content = new WindowsPage001();
 		}
 
 		void VideoPlayerButton_Click(object sender, RoutedEventArgs e)
 		{
 			this.Content = new VideoPlayer();
 		}
-    }
+	}
 }

@@ -1,21 +1,24 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:LocalControl="using:Hadows.Control">
-    <DataTemplate x:Key="ComponentListViewItemTemplate">
-        <Grid>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding DisplayName}" VerticalAlignment="Top"/>
-        </Grid>
+    xmlns:LocalControl="using:Hadows.Control" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+    <DataTemplate x:Key="DataTemplate1">
+        <StackPanel>
+            <Rectangle Fill="#FFFFE800" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="20"/>
+            <Border BorderThickness="3" BorderBrush="Red" Background="White">
+                <TextBlock TextWrapping="Wrap" Text="{Binding DisplayName}" Foreground="Purple" FontSize="64"/>
+            </Border>
+            <Border BorderThickness="3" BorderBrush="Red" Background="Yellow">
+                <TextBlock TextWrapping="Wrap" Text="{Binding ''}" Foreground="Green" FontSize="64"/>
+            </Border>
+        </StackPanel>
     </DataTemplate>
     <Style TargetType="LocalControl:ComponentSelector">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <StackPanel Background="{TemplateBinding Background}">
-                        <ListView x:Name="ComponentListView" 
-                                  ItemsSource="{Binding Components}" 
-                                  ItemTemplate="{StaticResource ComponentListViewItemTemplate}"/>
-                    </StackPanel>
+                    <ListView x:Name="ComponentListView" ItemsSource="{Binding Components}" ItemTemplate="{StaticResource DataTemplate1}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -128,7 +131,7 @@
                         </VisualStateManager.VisualStateGroups>
                         <ContentPresenter x:Name="MyContentPresenter" Visibility="Collapsed"/>
                         <Button x:Name="AddButton" Content="+" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <Button x:Name="ClearButton" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Global User Interface" Visibility="Collapsed"/>
+                        <Button x:Name="ClearButton" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Global User Interface" Visibility="Collapsed" d:IsHidden="True"/>
                         <LocalControl:ComponentSelector x:Name="ComponentSelector" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Red" Visibility="Collapsed"/>
                     </Grid>
                 </ControlTemplate>
